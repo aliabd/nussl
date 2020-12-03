@@ -127,11 +127,11 @@ class SeparationBase(object):
         if label is None: label = f"Separation via {type(self).__name__}"
 
         audio_in = gradio.inputs.Audio(source=source, type="file", label=label)
-
+        
         gradio.Interface(
             fn=_separate, 
             inputs=audio_in, 
-            outputs="html",
+            outputs="html", layout="vertical"
         ).launch(share=share)
 
     def run(self, *args, audio_signal=None, **kwargs):
